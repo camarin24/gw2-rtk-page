@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.hide{
+    display: none ;
+}
+.full-row{
+    height:100%;
+}
+body{
+    /*background-color: #212121;*/
+    background-image: url('https://s3.amazonaws.com/loadinginfo/uploads/pof/2017/07/28/1501270941-POF_Wallpaper_1920x1200_5.jpg');
+    background-size: cover;
+    font-family: 'Roboto', sans-serif !important;
+}

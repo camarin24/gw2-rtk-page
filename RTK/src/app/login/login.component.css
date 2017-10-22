@@ -1,0 +1,24 @@
+.mat-card{
+    margin-top: 10%;
+}
+.diagonal-image-container{
+    background-image: url('https://s3.amazonaws.com/loadinginfo/uploads/pof/2017/07/28/1501270941-POF_Wallpaper_1920x1200_5.jpg');
+    background-size: cover;
+}
+.mat-tab-group{
+    padding: 10px;
+}
+.form-login > div{
+    display: flex;
+    flex-direction: column;
+}
+.form-login > div > * {
+        width: 100%;
+}
+.form-login-container{
+    padding: 40px 20px 20px 20px;
+}
+
+.mat-form-field{
+    margin-top: 5px;
+}

@@ -1,51 +1,54 @@
 <div class="row justify-content-md-center">
-    <mat-card>
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>
-                <h2>Bienvenido a RTK</h2>
-            </mat-card-title>
-        </mat-card-header>
-        <div class="col">
-            <mat-tab-group>
-                <mat-tab label="Iniciar sesion">
-                    <form class="form-login">
-                        <div class="form-login-container">
-                            <mat-form-field [floatPlaceholder]="options.value.floatPlaceholder" class="">
-                                <input matInput placeholder="Nombre de usuario">
-                            </mat-form-field>
-                            <mat-form-field [floatPlaceholder]="options.value.floatPlaceholder">
-                                <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
-                                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-                            </mat-form-field>
+    <div class="col col-md-5">
+        <mat-card *ngIf="errorMessage" color="warn">{{errorMessage}}</mat-card>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <h2>Bienvenido a RTK</h2>
+                </mat-card-title>
+            </mat-card-header>
+            <div class="col">
+                <mat-tab-group>
+                    <mat-tab label="Iniciar sesion">
+                        <form class="form-login" ngNoForm>
+                            <div class="form-login-container">
+                                <mat-form-field [floatPlaceholder]="options.value.floatPlaceholder" class="">
+                                    <input matInput placeholder="Nombre de usuario" [(ngModel)]="loginModel.UserName" required >
+                                    <mat-error *ngIf="validations.username">{{requiredFiled}}</mat-error>
+                                </mat-form-field>
+                                <mat-form-field [floatPlaceholder]="options.value.floatPlaceholder">
+                                    <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'" [(ngModel)]="loginModel.Password" required>
+                                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                                    <mat-error *ngIf="validations.password">{{requiredFiled}}</mat-error>
+                                </mat-form-field>
+                                <button mat-raised-button color="primary" (click)="login()" type="button">Iniciar</button>
+                            </div>
+                        </form>
+                    </mat-tab>
+                    <mat-tab label="Registrarse">
+                        <form class="form-login">
+                            <div class="form-login-container">
+                                <mat-form-field [floatPlaceholder]="options.value.floatPlaceholder" class="">
+                                    <input matInput placeholder="Nombre de usuario">
+                                </mat-form-field>
+                                <mat-form-field [floatPlaceholder]="options.value.floatPlaceholder" class="">
+                                    <input matInput placeholder="Nombre en GW2">
+                                </mat-form-field>
+                                <mat-form-field [floatPlaceholder]="options.value.floatPlaceholder">
+                                    <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
+                                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                                </mat-form-field>
+                                <mat-form-field [floatPlaceholder]="options.value.floatPlaceholder">
+                                    <input matInput placeholder="Repetir contraseña" [type]="hideR ? 'password' : 'text'">
+                                    <mat-icon matSuffix (click)="hideR = !hideR">{{hideR ? 'visibility' : 'visibility_off'}}</mat-icon>
+                                </mat-form-field>
 
-                            <button mat-raised-button color="primary" (click)="login()" type="button">Iniciar</button>
-                        </div>
-                    </form>
-                </mat-tab>
-                <mat-tab label="Registrarse">
-                    <form class="form-login">
-                        <div class="form-login-container">
-                            <mat-form-field [floatPlaceholder]="options.value.floatPlaceholder" class="">
-                                <input matInput placeholder="Nombre de usuario">
-                            </mat-form-field>
-                            <mat-form-field [floatPlaceholder]="options.value.floatPlaceholder" class="">
-                                <input matInput placeholder="Nombre en GW2">
-                            </mat-form-field>
-                            <mat-form-field [floatPlaceholder]="options.value.floatPlaceholder">
-                                <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
-                                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-                            </mat-form-field>
-                            <mat-form-field [floatPlaceholder]="options.value.floatPlaceholder">
-                                <input matInput placeholder="Repetir contraseña" [type]="hideR ? 'password' : 'text'">
-                                <mat-icon matSuffix (click)="hideR = !hideR">{{hideR ? 'visibility' : 'visibility_off'}}</mat-icon>
-                            </mat-form-field>
-
-                            <button mat-raised-button color="primary">Iniciar</button>
-                        </div>
-                    </form>
-                </mat-tab>
-            </mat-tab-group>
-        </div>
-    </mat-card>
+                                <button mat-raised-button color="primary">Registrarse</button>
+                            </div>
+                        </form>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </mat-card>
+    </div>
 </div>

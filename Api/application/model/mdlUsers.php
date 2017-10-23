@@ -1,5 +1,6 @@
 <?php
-
+ //$result= $query->fetch(PDO::FETCH_ASSOC);
+ //$result = $result["idUsuario"];
 class mdlUsers
 {
     /**
@@ -76,6 +77,15 @@ class mdlUsers
         $query->execute();
         
         return $query->fetchAll();
+    }
+
+    public function Login($userName,$pass){
+        $sql = "SELECT * FROM Users WHERE UserName = ? and Password = ?";
+        $query = $this->db->prepare($sql);
+        $query->bindValue(1,$userName);
+        $query->bindValue(2,$pass);
+        $query->execute();
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 
 

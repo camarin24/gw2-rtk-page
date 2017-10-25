@@ -5,12 +5,11 @@
   "main": "app.js",
   "scripts": {
     "ng": "ng",
-    "start": "http-server dist/",
+    "start": "node app.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "preinstall": "npm install -g http-server"
+    "e2e": "ng e2e"
   },
   "engines": {
     "node":"~6.11.1",

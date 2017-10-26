@@ -25,7 +25,7 @@ export class BaseService {
     Post<T>(url:string,data:object):Promise<T> {
         $("mat-progress-bar").show();
         return this.http
-            .post(`${environment.API}/${url}`, JSON.stringify(data),{headers:this.Headers})
+            .post(`${environment.API}${url}`, JSON.stringify(data),{headers:this.Headers})
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
